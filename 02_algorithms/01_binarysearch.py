@@ -7,9 +7,9 @@ class BinarySearch:
 
     def search(self, arr:list, target:int) -> int:
         start = 0
-        end = len(arr)
+        end = len(arr) - 1
 
-        while end > start:
+        while end >= start:
             ## calculate mid value
             # if value is odd automatically because of integer division it will give root value
             mid = (end+start)//2
@@ -17,7 +17,7 @@ class BinarySearch:
             if arr[mid] == target:
                 return mid
             elif arr[mid] > target:
-                end = mid
+                end = mid - 1
             else:
                 start = mid + 1
 
