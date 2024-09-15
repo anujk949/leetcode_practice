@@ -95,6 +95,6 @@ print(bs.search(arr=[1, 2,2, 4, 6, 9, 10], target=2))
 - Data should be there in contiguous memory (all the memory spaces remains together in one place).
 
 
-## Apllications
+## 7. Applications
 - It can be used for searching in Databases
 - It is used in building more complex algorithms in machine learning, training neural networks and finding optimal hyper-parameters for a model
