@@ -37,10 +37,30 @@ class LinkedList:
         self.length += 1
 
 
-    def __str__(self):
+    def prepend(self, data):
         if self.length == 0:
-            return "Linked List is empty"
+            self.head = self.tail = Node(data)
+        else:
+            new_node = Node(data)
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+
+
+    def reverse(self):
+        prev = None
         curr = self.head
+        while curr:
+            temp = curr
+            curr = curr.next
+            temp.next = prev
+            prev = temp
+        return prev
+
+    def __get_printable(self, head):
+        if head == None:
+            return "Linked List is empty"
+        curr = head
         ll_str = ""
         while curr.next:
             ll_str += f"{curr.data} -> "
@@ -48,7 +68,18 @@ class LinkedList:
         ll_str += f"{curr.data}"
         return ll_str
 
+    def print(self, head):
+        print(self.__get_printable(head))
+
+    def __str__(self):
+        return self.__get_printable(self.head)
+
+
 if __name__ == "__main__":
-    ll = LinkedList([1,2])
+    ll = LinkedList()
     ll.extend([3,4,5])
-    print(len(ll))
+    ll.prepend(0)
+    ll.append(6)
+    
+    print(ll)
+    ll.print(ll.reverse())
