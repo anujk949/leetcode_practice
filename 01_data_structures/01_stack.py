@@ -1,4 +1,4 @@
-class Stack:
+class StackList:
     def __init__(self, max_length=None):
         self.stack = []
         self.length = 0
@@ -34,3 +34,17 @@ class Stack:
         else:
             False
     
+
+
+class StackLinkedList:
+    def __init__(self):
+        self.head = None
+        self.length = 0
+
+
+    def size(self):
+        pass
+
+
+    def push(self, item):
+        pass 
