@@ -55,7 +55,43 @@ class LinkedList:
             curr = curr.next
             temp.next = prev
             prev = temp
+
         return prev
+
+    def pop(self):
+        if self.length == 0:
+            raise IndexError("No Element to pop!")
+        elif self.length == 1:
+            temp = self.tail
+            self.head = self.tail = None
+            self.length = 0
+            return temp
+        else:
+            curr = self.head
+            while curr.next.next:
+                curr = curr.next
+
+            temp = curr.next
+            self.tail = curr
+            curr.next = None
+            self.length -= 1
+            return temp
+
+
+    def popFirst(self):
+        if self.length == 0:
+            raise IndexError("No Element to pop!")
+        elif self.length == 1:
+            temp = self.head
+            self.head = self.tail = None
+            self.length = 0
+            return temp
+        else:
+            temp = self.head
+            self.head = self.head.next
+            self.length -= 1
+            return temp
+
 
     def __get_printable(self, head):
         if head == None:
@@ -82,4 +118,6 @@ if __name__ == "__main__":
     ll.append(6)
     
     print(ll)
-    ll.print(ll.reverse())
+    print(ll.popFirst().data)
+    print(ll.pop().data)
+    print(ll)
