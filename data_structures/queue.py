@@ -67,7 +67,10 @@ class QueueUsingList:
     def enqueue(self, val):
         if self.isFull():
             raise Exception("Queue is already full")
-        self.__queue[self.right] = val
+        if self.max_length:
+            self.__queue[self.right] = val
+        else:
+            self.__queue.append(val)
         self.length+=1
         self.right+=1
         if self.max_length:
