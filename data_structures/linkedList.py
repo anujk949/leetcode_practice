@@ -93,7 +93,7 @@ class LinkedList:
             return temp
 
 
-    def __get_printable(self, head):
+    def _get_printable(self, head):
         if head == None:
             return "Linked List is empty"
         curr = head
@@ -105,19 +105,7 @@ class LinkedList:
         return ll_str
 
     def print(self, head):
-        print(self.__get_printable(head))
+        print(self._get_printable(head))
 
     def __str__(self):
-        return self.__get_printable(self.head)
-
-
-if __name__ == "__main__":
-    ll = LinkedList()
-    ll.extend([3,4,5])
-    ll.prepend(0)
-    ll.append(6)
-    
-    print(ll)
-    print(ll.popFirst().data)
-    print(ll.pop().data)
-    print(ll)
+        return self._get_printable(self.head)
